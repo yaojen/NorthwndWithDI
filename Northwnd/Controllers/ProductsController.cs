@@ -9,24 +9,26 @@ using System.Web.Mvc;
 using Northwnd.Models;
 using Northwnd.Models.Interface;
 using Northwnd.Models.Repository;
+using Northwnd.Service;
+using Northwnd.Service.Interface;
 
 namespace Northwnd.Web.Controllers
 {
     public class ProductsController : Controller
     {
-        private IProductRepository productRepository;
-        private ICategoryRepository categoryRepository;
+        private IProductService productService;
+        private ICategoryService categoryService;
 
         public ProductsController()
         {
-            productRepository = new ProductRepository();
-            categoryRepository = new CategoryRepository();
+            productService = new ProductService();
+            categoryService = new CategoryService();
         }
 
         // GET: Products
         public ActionResult Index()
         {
-            var products = productRepository.GetAll();
+            var products = productService.GetAll();
             return View(products.ToList());
         }
 
@@ -37,7 +39,7 @@ namespace Northwnd.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(x => x.ProductID == id.Value);
+            Product product = productService.GetByID(id.Value);
 
             if (product == null)
             {
@@ -49,7 +51,7 @@ namespace Northwnd.Web.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = categoryRepository.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
+            ViewBag.CategoryID = categoryService.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
             return View();
         }
 
@@ -62,13 +64,12 @@ namespace Northwnd.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                productRepository.Create(product);
-                productRepository.SaveChanges();
+                productService.Create(product);
                 return RedirectToAction("Index");
             }
 
             // ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.CategoryID = categoryRepository.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
+            ViewBag.CategoryID = categoryService.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
             return View(product);
         }
 
@@ -79,13 +80,13 @@ namespace Northwnd.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(x => x.ProductID == id.Value);
+            Product product = productService.GetByID(id.Value);
             if (product == null)
             {
                 return HttpNotFound();
             }
             //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.CategoryID = categoryRepository.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
+            ViewBag.CategoryID = categoryService.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
             return View(product);
         }
 
@@ -98,13 +99,12 @@ namespace Northwnd.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                productRepository.Update(product);
-                productRepository.SaveChanges();
+                productService.Update(product);
                 
                 return RedirectToAction("Index");
             }
             //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.CategoryID = categoryRepository.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
+            ViewBag.CategoryID = categoryService.GetAll().Select(x => new { CategoryID = x.CategoryID, CategoryName = x.CategoryName });
             return View(product);
         }
 
@@ -115,7 +115,7 @@ namespace Northwnd.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(x => x.ProductID == id.Value);
+            Product product = productService.GetByID(id.Value);
                
             if (product == null)
             {
@@ -129,9 +129,7 @@ namespace Northwnd.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = productRepository.Get(x => x.ProductID == id);
-            productRepository.Delete(product);
-            productRepository.SaveChanges();
+            productService.Delete(id);
             return RedirectToAction("Index");
         }
 

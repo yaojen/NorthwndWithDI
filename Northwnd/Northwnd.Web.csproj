@@ -185,6 +185,10 @@
       <Project>{311b383f-541b-4421-821a-6d78d1c05277}</Project>
       <Name>Northwnd.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Northwnd.Service\Northwnd.Service.csproj">
+      <Project>{cc26bceb-0875-4df2-a6c1-599957c6c7c3}</Project>
+      <Name>Northwnd.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
