@@ -14,15 +14,14 @@ namespace Northwnd.Controllers
 {
     public class ProductsController : Controller
     {
-        //private NORTHWNDEntities db = new NORTHWNDEntities();
-        private IProductRepository productRepository;
-        private ICategoryRepository categoryRepository;
-
+       
+        private IRepository<Product> productRepository;
+        private IRepository<Category> categoryRepository;
 
         public ProductsController()
         {
-            productRepository = new ProductRepository();
-            categoryRepository = new CategoryRepository();
+            productRepository = new GenericRepository<Product>();
+            categoryRepository = new GenericRepository<Category>();
         }
 
         // GET: Products
@@ -39,7 +38,7 @@ namespace Northwnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(id.Value);
+            Product product = productRepository.Get(x => x.ProductID == id.Value);
 
             if (product == null)
             {
@@ -81,7 +80,7 @@ namespace Northwnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(id.Value);
+            Product product = productRepository.Get(x => x.ProductID == id.Value);
             if (product == null)
             {
                 return HttpNotFound();
@@ -117,7 +116,7 @@ namespace Northwnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = productRepository.Get(id.Value);
+            Product product = productRepository.Get(x => x.ProductID == id.Value);
                
             if (product == null)
             {
@@ -131,7 +130,7 @@ namespace Northwnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = productRepository.Get(id);
+            Product product = productRepository.Get(x => x.ProductID == id);
             productRepository.Delete(product);
             productRepository.SaveChanges();
             return RedirectToAction("Index");

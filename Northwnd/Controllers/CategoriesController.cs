@@ -14,11 +14,12 @@ namespace Northwnd.Controllers
 {
     public class CategoriesController : Controller
     {
-        private ICategoryRepository categoryRepository;
+        private IRepository<Category> categoryRepository;
 
         public CategoriesController()
         {
-            this.categoryRepository = new CategoryRepository();
+            this.categoryRepository = new GenericRepository<Category>();
+            
         }
 
         // GET: Categories
@@ -38,7 +39,7 @@ namespace Northwnd.Controllers
             }
             else
             {
-                var category = this.categoryRepository.Get(id.Value);
+                var category = this.categoryRepository.Get(x => x.CategoryID == id.Value);
                 return View(category);
 
             }
@@ -74,7 +75,7 @@ namespace Northwnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = categoryRepository.Get(id.Value);
+            Category category = categoryRepository.Get(x => x.CategoryID == id.Value);
                
             if (category == null)
             {
@@ -107,7 +108,7 @@ namespace Northwnd.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = categoryRepository.Get(id.Value);
+            Category category = categoryRepository.Get(x => x.CategoryID == id.Value);
                 
             if (category == null)
             {
@@ -121,7 +122,7 @@ namespace Northwnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = categoryRepository.Get(id);
+            Category category = categoryRepository.Get(x => x.CategoryID == id);
             categoryRepository.Delete(category);
             categoryRepository.SaveChanges();
             return RedirectToAction("Index");
