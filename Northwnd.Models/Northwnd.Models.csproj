@@ -68,8 +68,6 @@
     <Compile Include="Category.cs">
       <DependentUpon>NorthwndDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interface\ICategoryRepository.cs" />
-    <Compile Include="Interface\IProductRepository.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="NorthwndDb.Context.cs">
       <AutoGen>True</AutoGen>
@@ -90,9 +88,7 @@
       <DependentUpon>NorthwndDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NORTHWND.MDF">
