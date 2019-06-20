@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace Northwnd.Models.Interface
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category>
     {
-        void Create(Category instance);
-
-        void Update(Category instance);
-
-        void Delete(Category instance);
-
-        Category Get(int categoryID);
-
-        IQueryable<Category> GetAll();
-
-        void SaveChanges();
+      
     }
 }

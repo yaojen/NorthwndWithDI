@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace Northwnd.Models.Interface
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
-        void Create(Product instance);
-
-        void Update(Product instance);
-
-        void Delete(Product instance);
-
-        Product Get(int productID);
-
-        IQueryable<Product> GetAll();
-
-        void SaveChanges();
+      
     }
 }
