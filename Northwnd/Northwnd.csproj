@@ -169,8 +169,6 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>Northwnd.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Interface\ICategoryRepository.cs" />
-    <Compile Include="Models\Interface\IProductRepository.cs" />
     <Compile Include="Models\Interface\IRepository.cs" />
     <Compile Include="Models\Northwnd.Context.cs">
       <AutoGen>True</AutoGen>
@@ -190,8 +188,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Northwnd.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Repository\CategoryRepository.cs" />
-    <Compile Include="Models\Repository\ProductRepository.cs" />
+    <Compile Include="Models\Repository\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
