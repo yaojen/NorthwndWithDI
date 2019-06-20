@@ -14,14 +14,13 @@ namespace Northwnd.Controllers
 {
     public class ProductsController : Controller
     {
-       
-        private IRepository<Product> productRepository;
-        private IRepository<Category> categoryRepository;
+        private IProductRepository productRepository;
+        private ICategoryRepository categoryRepository;
 
         public ProductsController()
         {
-            productRepository = new GenericRepository<Product>();
-            categoryRepository = new GenericRepository<Category>();
+            productRepository = new ProductRepository();
+            categoryRepository = new CategoryRepository();
         }
 
         // GET: Products

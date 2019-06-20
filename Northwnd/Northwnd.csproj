@@ -120,16 +120,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Northwnd.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Northwnd.Context.cs</LastGenOutput>
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Northwnd.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-      <LastGenOutput>Northwnd.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -139,6 +129,19 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Models\Northwnd.Context.tt">
+      <DependentUpon>Northwnd.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Northwnd.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Northwnd.edmx.diagram">
+      <DependentUpon>Northwnd.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Northwnd.tt">
+      <DependentUpon>Northwnd.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Northwnd.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -169,37 +172,34 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>Northwnd.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Interface\ICategoryRepository.cs" />
+    <Compile Include="Models\Interface\IProductRepository.cs" />
     <Compile Include="Models\Interface\IRepository.cs" />
     <Compile Include="Models\Northwnd.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Northwnd.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Northwnd.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Northwnd.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Northwnd.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Northwnd.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Product.cs">
       <DependentUpon>Northwnd.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\CategoryRepository.cs" />
     <Compile Include="Models\Repository\GenericRepository.cs" />
+    <Compile Include="Models\Repository\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\Northwnd.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Northwnd.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Northwnd.edmx.diagram">
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -217,7 +217,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="Models\Northwnd.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Northwnd.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

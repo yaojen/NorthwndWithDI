@@ -14,11 +14,11 @@ namespace Northwnd.Controllers
 {
     public class CategoriesController : Controller
     {
-        private IRepository<Category> categoryRepository;
+        private ICategoryRepository categoryRepository;
 
         public CategoriesController()
         {
-            this.categoryRepository = new GenericRepository<Category>();
+            this.categoryRepository = new CategoryRepository();
             
         }
 
