@@ -15,7 +15,7 @@ namespace Northwnd.Models.Interface
 
         void Delete(TEntity instance);
 
-        Product Get(int primaryID);
+        TEntity Get(int primaryID);
 
         IQueryable<TEntity> GetAll();
 
