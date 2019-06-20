@@ -6,11 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Northwnd.Models;
-using Northwnd.Models.Interface;
-using Northwnd.Models.Repository;
+using NorthwndWeb.Models;
+using NorthwndWeb.Models.Interface;
+using NorthwndWeb.Models.Repository;
 
-namespace Northwnd.Controllers
+namespace Northwnd.Web.Controllers
 {
     public class CategoriesController : Controller
     {

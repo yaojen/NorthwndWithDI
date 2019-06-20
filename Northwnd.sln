@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd", "Northwnd\Northwnd.csproj", "{1E97654D-06B5-4F11-8706-4CF901E0F533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd.Web", "Northwnd\Northwnd.Web.csproj", "{1E97654D-06B5-4F11-8706-4CF901E0F533}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwnd.Tests", "Northwnd.Tests\Northwnd.Tests.csproj", "{30029813-F0B4-4B32-9BF2-70A6A1A7B22A}"
 EndProject

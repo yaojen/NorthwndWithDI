@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Northwnd</RootNamespace>
-    <AssemblyName>Northwnd</AssemblyName>
+    <RootNamespace>Northwnd.Web</RootNamespace>
+    <AssemblyName>Northwnd.Web</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -129,19 +129,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Models\Northwnd.Context.tt">
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Northwnd.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Northwnd.edmx.diagram">
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Northwnd.tt">
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Northwnd.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -169,33 +156,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs">
-      <DependentUpon>Northwnd.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Interface\ICategoryRepository.cs" />
-    <Compile Include="Models\Interface\IProductRepository.cs" />
-    <Compile Include="Models\Interface\IRepository.cs" />
-    <Compile Include="Models\Northwnd.Context.cs">
-      <DependentUpon>Northwnd.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\Northwnd.cs">
-      <DependentUpon>Northwnd.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\Northwnd.Designer.cs">
-      <DependentUpon>Northwnd.edmx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>Northwnd.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Repository\CategoryRepository.cs" />
-    <Compile Include="Models\Repository\GenericRepository.cs" />
-    <Compile Include="Models\Repository\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,12 +176,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Models\Northwnd.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Northwnd.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
