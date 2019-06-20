@@ -64,9 +64,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Northwnd\Northwnd.csproj">
+    <ProjectReference Include="..\Northwnd\Northwnd.Web.csproj">
       <Project>{1E97654D-06B5-4F11-8706-4CF901E0F533}</Project>
-      <Name>Northwnd</Name>
+      <Name>Northwnd.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
