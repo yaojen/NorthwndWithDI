@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using NorthwndWeb.Models;
-using NorthwndWeb.Models.Interface;
-using NorthwndWeb.Models.Repository;
+using Northwnd.Models;
+using Northwnd.Models.Interface;
+using Northwnd.Models.Repository;
 
 namespace Northwnd.Web.Controllers
 {

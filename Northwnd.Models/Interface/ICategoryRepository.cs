@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Northwnd.Models.Interface
 {
-    interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryRepository : IRepository<Category>
     {
         Category GetById(int categoryId);
     }

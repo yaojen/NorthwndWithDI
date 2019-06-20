@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Northwnd.Models.Interface
 {
-    interface IProductRepository : IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
         Product GetByID(int productID);
 
